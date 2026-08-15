@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=auth
+    username: postgres
+    password: devpass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: auth
+  flyway:
+    schemas: auth
+    baseline-on-migrate: true
+
+jwt:
+  secret: ${JWT_SECRET:dev-only-secret-change-in-real-env-min-32-chars}
+  expiration-ms: 3600000
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+server:
+  port: 8081
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+server:
+  port: 8081
