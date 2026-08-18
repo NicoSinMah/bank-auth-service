@@ -1,4 +1,4 @@
 package com.banking.auth.dto;
 
-public record AuthResponse(String accesToken, long expiresIn, String userId) {
+public record AuthResponse(String accessToken, long expiresIn, String userId) {
 }

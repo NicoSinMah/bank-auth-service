@@ -1,4 +1,4 @@
 package com.banking.auth.dto;
 
-public record ValidateResponse(Boolean isValid, String userId) {
+public record ValidateResponse(Boolean valid, String userId) {
 }
